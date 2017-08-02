@@ -1,0 +1,18 @@
+<project
+    name = "czguide"
+    email = "zeromq-dev@lists.zeromq.org"
+    license = "MPLv2"
+    script = "zproject.gsl"
+    >
+
+    <target name = "cmake" />
+    <target name = "autotools" />
+
+    <use project = "czmq" />
+
+    <main name = "lpclient" />
+    <main name = "lpserver" />
+
+    <class name = "common" />
+
+</project>

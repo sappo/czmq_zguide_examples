@@ -51,12 +51,12 @@ int main (int argc, char *argv [])
     int rc = zsock_connect (client, "%s", SERVER_ENDPOINT);
     assert (rc == 0);
 
-    int sequence = 0;
-    int retries_left = REQUEST_RETRIES;
+    uint8_t sequence = 0;
+    uint8_t retries_left = REQUEST_RETRIES;
     while (retries_left && !zctx_interrupted) {
         //  We send a request, then we work to get a reply
         char request [10];
-        sprintf (request, "%d", ++sequence);
+        sprintf (request, "%"PRIu8, ++sequence);
         zstr_send (client, request);
 
         int expect_reply = 1;
